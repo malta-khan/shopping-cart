@@ -5,7 +5,9 @@ import Shop from './Shop'
 import Cart from './Cart'
 import Invalid from './Invalid';
 import Item from "./Item";
-import { useState } from "react";
+import { useState} from "react";
+import React from "react";
+import OrderCompleted from "./OrderCompleted";
 
 let App = ()=>{
     let storeItems = [
@@ -28,10 +30,13 @@ let App = ()=>{
             price: 200,
         },
     ]
-    let [cartItems, setCartItems] = useState({
-        "my-pen": 10,
-        "my-mouse": 15,
-    });
+    
+    // let [cartItems, setCartItems] = useState({
+    //     "my-pen": 10,
+    //     "my-mouse": 15,
+    // });
+
+    let [cartItems, setCartItems] = useStickyState({}, "cartItems")
 
     let addToCart = (id, qty)=>{
         //if item is not in the cart, add it
@@ -60,6 +65,24 @@ let App = ()=>{
         delete newCartItems[id];
         setCartItems(newCartItems);
     }
+
+    let completeOrder = ()=>{
+        setCartItems({});
+    }
+    //https://www.joshwcomeau.com/react/persisting-react-state-in-localstorage/
+    function useStickyState(defaultValue, key) {
+        const [value, setValue] = React.useState(() => {
+          const stickyValue = window.localStorage.getItem(key);
+          return stickyValue !== null
+            ? JSON.parse(stickyValue)
+            : defaultValue;
+        });
+        React.useEffect(() => {
+          window.localStorage.setItem(key, JSON.stringify(value));
+        }, [key, value]);
+        return [value, setValue];
+      }
+
     return <BrowserRouter>
     <Routes>
     <Route path="*" element = {<Navbar></Navbar>} ></Route>
@@ -67,7 +90,8 @@ let App = ()=>{
     <Routes>
     <Route path="/" element = {<Home></Home>} ></Route>
     <Route path="/shop" element = {<Shop storeItems = {storeItems}></Shop>} ></Route>
-    <Route path="/my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem}></Cart>} ></Route>
+    <Route path="/my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem} completeOrder = {completeOrder}></Cart>} ></Route>
+    <Route path="/order-completed" element = {<OrderCompleted></OrderCompleted>}></Route>
     <Route path="/shop/:item" element = {<Item storeItems = {storeItems} cartItems = {cartItems} addToCart = {addToCart}></Item>} ></Route>
     <Route path="*" element = {<Invalid></Invalid>} ></Route>
     </Routes>

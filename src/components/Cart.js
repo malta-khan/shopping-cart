@@ -10,6 +10,7 @@ const Cart = (props)=>{
     let updateCart = props.updateCart;
     let deleteCartItem = props.deleteCartItem;
     let storeItems = props.storeItems;
+    let completeOrder = props.completeOrder;
     let filterdItems = storeItems.map(item => {
         if(Object.keys(cartItems).includes(item.id)){
             item.qty = cartItems[item.id];
@@ -36,7 +37,7 @@ const Cart = (props)=>{
     if(grandTotal > 0){
         orderSection = <div>
             <div>Total: {grandTotal}</div>
-            <button>Place order</button>
+            <a href= "/order-completed" onClick={()=>{completeOrder()}}>Place order</a>
         </div>
     }
 
