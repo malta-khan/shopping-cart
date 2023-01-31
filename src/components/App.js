@@ -8,34 +8,11 @@ import Item from "./Item";
 import { useState} from "react";
 import React from "react";
 import OrderCompleted from "./OrderCompleted";
+import minecraftItems from "./minecraftItems";
 
 let App = ()=>{
-    let storeItems = [
-        {
-            id: "my-pen",
-            title: "Pen",
-            details: "lorem impsum",
-            price: 100,
-        },
-        {
-            id: "my-paper",
-            title: "paper",
-            details: "lorem impsum",
-            price: 50,
-        },
-        {
-            id: "my-mouse",
-            title: "Mouse",
-            details: "lorem impsum",
-            price: 200,
-        },
-    ]
+    let storeItems = minecraftItems;
     
-    // let [cartItems, setCartItems] = useState({
-    //     "my-pen": 10,
-    //     "my-mouse": 15,
-    // });
-
     let [cartItems, setCartItems] = useStickyState({}, "cartItems")
 
     let addToCart = (id, qty)=>{
