@@ -5,8 +5,7 @@ import Shop from './Shop'
 import Cart from './Cart'
 import Invalid from './Invalid';
 import Item from "./Item";
-import { useState} from "react";
-import React from "react";
+import { useState, useEffect} from "react";
 import OrderCompleted from "./OrderCompleted";
 import minecraftItems from "./minecraftItems";
 
@@ -37,10 +36,7 @@ let App = ()=>{
         setCartItems({...cartItems, [id]: qty});
     }
     let deleteCartItem = (id)=>{
-        console.log(id)
-        let newCartItems = {...cartItems};
-        delete newCartItems[id];
-        setCartItems(newCartItems);
+        setCartItems({...cartItems, [id]: undefined});
     }
 
     let completeOrder = ()=>{
@@ -48,13 +44,13 @@ let App = ()=>{
     }
     //https://www.joshwcomeau.com/react/persisting-react-state-in-localstorage/
     function useStickyState(defaultValue, key) {
-        const [value, setValue] = React.useState(() => {
+        const [value, setValue] = useState(() => {
           const stickyValue = window.localStorage.getItem(key);
           return stickyValue !== null
             ? JSON.parse(stickyValue)
             : defaultValue;
         });
-        React.useEffect(() => {
+        useEffect(() => {
           window.localStorage.setItem(key, JSON.stringify(value));
         }, [key, value]);
         return [value, setValue];

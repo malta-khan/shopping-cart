@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState } from "react";
+import ImageLoader from "./ImageLoader";
 const Item = (props)=>{
     //get item name from url, scan store for that item.
     //show message if item not exist, else show details
@@ -13,6 +14,7 @@ const Item = (props)=>{
         itemDetails =  <div> Item Not Found</div>;
     } else{
         itemDetails =  <div>
+        <ImageLoader name = {storeItem.id}></ImageLoader>
         <div>{storeItem.title}</div>
         <div>{storeItem.details}</div>
         <div>{storeItem.price}</div>
