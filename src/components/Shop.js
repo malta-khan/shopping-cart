@@ -5,7 +5,7 @@ const Shop = (props)=>{
     //Titles of items should be clickable, which takes user to item page
     let items = props.storeItems.map((item)=>{
         return (
-        <a key={item.id} href={"/shop/" + item.id} className="flex border p-4 h-36 mb-2 rounded-md shadow-md bg-neutral-100 hover:bg-slate-200 focus:ring">
+        <a key={item.id} href={"/shop/" + item.id} className="flex border p-4 h-auto sm:h-36 mb-2 rounded-md shadow-md bg-neutral-100 hover:bg-slate-200 focus:ring">
             
             <div className="w-1/4 mr-6">
                 <ImageLoader className = "" name = {item.id} ></ImageLoader>

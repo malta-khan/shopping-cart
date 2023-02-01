@@ -39,11 +39,6 @@ const Cart = (props) => {
                     <div className="w-3/4 flex flex-col">
                         <a href={"/shop/" + item.id}><h2 className=" text-xl font-semibold text-yellow-700">{item.title}</h2></a>
                         <div className="text-neutral-700">{item.details.slice(0, 120) + "..."}</div>
-                        <div className="flex items-center font-semibold">
-                            <div>{item.qty} qty x {item.price} per item =</div>
-                            <div className="w-6 h-6"><ImageLoader name={"emerald"} ></ImageLoader></div>
-                            <div className="text-lg text-neutral-800">{item.price * item.qty} Total</div>
-                        </div> 
                     </div>
                     <div className="w-1/4 ml-6 flex flex-col justify-between">
                         <ImageLoader className="" name={item.id} ></ImageLoader>
@@ -55,6 +50,12 @@ const Cart = (props) => {
                         </label>
                         <button className="text-center font-semibold text-yellow-700 hover:text-yellow-500 focus:text-red-500" onClick={() => { deleteCartItem(item.id) }}>Remove from cart</button>
                 </div>
+                <div className="flex items-center font-semibold w-full justify-center mt-3 bg-neutral-200 rounded-md p-2">
+                            <div>{item.qty} qty x {item.price} per item =</div>
+                            <div className="w-6 h-6"><ImageLoader name={"emerald"} ></ImageLoader></div>
+                            <div className="text-lg text-neutral-800">{item.price * item.qty} Total</div>
+                </div> 
+                
             </div>
         )
     })
