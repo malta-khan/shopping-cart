@@ -21,7 +21,7 @@ const Shop = (props)=>{
                         <div className="w-6 h-6">
                         <ImageLoader  name = {"emerald"} ></ImageLoader> 
                         </div>
-                        <div className="text-lg font-semibold font-mono text-neutral-800">x {item.price}</div>
+                        <div className="text-lg font-semibold font-mono text-neutral-800">{item.price}</div>
                     </div>
                 </div>
                 <div className="text-neutral-700">{item.details.slice(0,120)+"..."}</div> 
