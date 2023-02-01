@@ -24,7 +24,7 @@ const Cart = (props) => {
 
 
     if (filterdItems.length === 0) {
-        return <div className="max-w-xl w-full  p-24 ">
+        return <div className="max-w-xl w-full  p-24 grow">
             <div className="text-2xl">There are no items in your cart</div>
             <a className="block w-36 bg-green-700 hover:bg-green-800 active:ring text-neutral-100 shadow p-2  mt-3" href="/shop">Go to shop page</a>
         </div>
@@ -34,7 +34,7 @@ const Cart = (props) => {
 
         grandTotal += item.qty * item.price
         return (
-            <div className="flex flex-col border p-4  mb-4 rounded-md shadow-md bg-neutral-100" key = {item.id}>
+            <div className="flex flex-col border p-4  mb-4 rounded-md shadow-md bg-neutral-100 " key = {item.id}>
                 <div className="flex">
                     <div className="w-3/4 flex flex-col">
                         <a href={"/shop/" + item.id}><h2 className=" text-xl font-semibold text-yellow-700">{item.title}</h2></a>
@@ -61,7 +61,7 @@ const Cart = (props) => {
     })
 
     return (
-        <div className="max-w-xl w-full px-4 ">
+        <div className="max-w-xl w-full px-4 grow">
         <h2 className="text-2xl text-neutral-600 mt-1 text-center mb-10">Items in your cart</h2>
             {filterdItems}
             <div className="flex flex-col items-end">

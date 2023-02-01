@@ -14,7 +14,7 @@ const Item = (props) => {
     let qtyInCart = props.cartItems[itemUrl];
 
     if (storeItem === undefined) {
-        return <div className="max-w-xl w-full  p-24 ">
+        return <div className="max-w-xl w-full  p-24 grow">
             <div className="text-2xl">Invalid URL. Item not found</div>
             <a className="block w-36 bg-green-700 hover:bg-green-800 active:ring text-neutral-100 shadow p-2  mt-3" href="/shop">Go to shop page</a>
         </div>
