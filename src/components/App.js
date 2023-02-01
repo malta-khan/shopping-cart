@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './Navbar';
+import Footer from "./Footer";
 import Home from './Home';
 import Shop from './Shop'
 import Cart from './Cart'
@@ -67,6 +68,9 @@ let App = ()=>{
     <Route path="/order-completed" element = {<OrderCompleted></OrderCompleted>}></Route>
     <Route path="/shop/:item" element = {<Item storeItems = {storeItems} cartItems = {cartItems} addToCart = {addToCart}></Item>} ></Route>
     <Route path="*" element = {<Invalid></Invalid>} ></Route>
+    </Routes>
+    <Routes>
+    <Route path="*" element = {<Footer></Footer>} ></Route>
     </Routes>
 </BrowserRouter>
 }

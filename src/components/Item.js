@@ -14,13 +14,16 @@ const Item = (props) => {
     let qtyInCart = props.cartItems[itemUrl];
 
     if (storeItem === undefined) {
-        return <div> Item Not Found</div>;
+        return <div className="max-w-xl w-full  p-24 ">
+            <div className="text-2xl">Invalid URL. Item not found</div>
+            <a className="block w-36 bg-green-700 hover:bg-green-800 active:ring text-neutral-100 shadow p-2  mt-3" href="/shop">Go to shop page</a>
+        </div>
     }
 
     return (
         <div className="max-w-xl w-full px-4">
 
-            <div className="border" >
+            <div className="border w-full h-96" >
                 <ImageLoader name={storeItem.id}></ImageLoader>
             </div>
 
@@ -42,7 +45,9 @@ const Item = (props) => {
                 </div>
 
                 {qtyInCart !== undefined && qtyInCart > 0 &&
-                    <div className="mt-1">You have {qtyInCart} of this item in your cart.</div>
+                    <div className="mt-1">You have {qtyInCart} of this item in your cart. 
+                    <a className="underline ml-1 text-green-700" href="/my-cart">Go to Cart</a>
+                    </div>
                 }
             </div>
 
