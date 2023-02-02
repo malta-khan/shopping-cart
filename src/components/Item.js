@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import ImageLoader from "./ImageLoader";
 const Item = (props) => {
@@ -16,7 +17,7 @@ const Item = (props) => {
     if (storeItem === undefined) {
         return <div className="max-w-xl w-full  p-24 grow">
             <div className="text-2xl">Invalid URL. Item not found</div>
-            <a className="block w-36 bg-green-700 hover:bg-green-800 active:ring text-neutral-100 shadow p-2  mt-3" href="/shop">Go to shop page</a>
+            <Link className="block w-36 bg-green-700 hover:bg-green-800 active:ring text-neutral-100 shadow p-2  mt-3" to="/shopping-cart/shop">Go to shop page</Link>
         </div>
     }
 
@@ -46,7 +47,7 @@ const Item = (props) => {
 
                 {qtyInCart !== undefined && qtyInCart > 0 &&
                     <div className="mt-1">You have {qtyInCart} of this item in your cart. 
-                    <a className="underline ml-1 text-green-700" href="/my-cart">Go to Cart</a>
+                    <Link className="underline ml-1 text-green-700" to="/shopping-cart/my-cart">Go to Cart</Link>
                     </div>
                 }
             </div>

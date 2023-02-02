@@ -59,18 +59,18 @@ let App = ()=>{
 
     return <BrowserRouter>
     <Routes>
-    <Route path="*" element = {<Navbar></Navbar>} ></Route>
+    <Route path="/shopping-cart/*" element = {<Navbar></Navbar>} ></Route>
     </Routes>
     <Routes>
-    <Route path="/" element = {<Home></Home>} ></Route>
-    <Route path="/shop" element = {<Shop storeItems = {storeItems}></Shop>} ></Route>
-    <Route path="/my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem} completeOrder = {completeOrder}></Cart>} ></Route>
-    <Route path="/order-completed" element = {<OrderCompleted></OrderCompleted>}></Route>
-    <Route path="/shop/:item" element = {<Item storeItems = {storeItems} cartItems = {cartItems} addToCart = {addToCart}></Item>} ></Route>
-    <Route path="*" element = {<Invalid></Invalid>} ></Route>
+    <Route path="/shopping-cart" element = {<Home></Home>} ></Route>
+    <Route path="/shopping-cart/shop" element = {<Shop storeItems = {storeItems}></Shop>} ></Route>
+    <Route path="/shopping-cart/my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem} completeOrder = {completeOrder}></Cart>} ></Route>
+    <Route path="/shopping-cart/order-completed" element = {<OrderCompleted></OrderCompleted>}></Route>
+    <Route path="/shopping-cart/shop/:item" element = {<Item storeItems = {storeItems} cartItems = {cartItems} addToCart = {addToCart}></Item>} ></Route>
+    <Route path="/shopping-cart/*" element = {<Invalid></Invalid>} ></Route>
     </Routes>
     <Routes>
-    <Route path="*" element = {<Footer></Footer>} ></Route>
+    <Route path="/shopping-cart/*" element = {<Footer></Footer>} ></Route>
     </Routes>
 </BrowserRouter>
 }

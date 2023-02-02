@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import ImageLoader from "./ImageLoader"
 
 const Shop = (props)=>{
@@ -5,7 +6,7 @@ const Shop = (props)=>{
     //Titles of items should be clickable, which takes user to item page
     let items = props.storeItems.map((item)=>{
         return (
-        <a key={item.id} href={"/shop/" + item.id} className="flex border p-4 h-auto sm:h-36 mb-2 rounded-md shadow-md bg-neutral-100 hover:bg-slate-200 focus:ring">
+        <Link key={item.id} to={"/shopping-cart/shop/" + item.id} className="flex border p-4 h-auto sm:h-36 mb-2 rounded-md shadow-md bg-neutral-100 hover:bg-slate-200 focus:ring">
             
             <div className="w-1/4 mr-6">
                 <ImageLoader className = "" name = {item.id} ></ImageLoader>
@@ -26,7 +27,7 @@ const Shop = (props)=>{
                 </div>
                 <div className="text-neutral-700">{item.details.slice(0,120)+"..."}</div> 
             </div>
-        </a>
+        </Link>
             )
     })
     return <div className="max-w-xl w-full px-4">
