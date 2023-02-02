@@ -10,7 +10,6 @@ const Cart = (props) => {
     //shows a dummy order button.
     //show title, short description, price per item, qty in cart and ammount
     let grandTotal = 0;
-    let completeOrder = props.completeOrder;
     let updateCart = props.updateCart;
     let deleteCartItem = props.deleteCartItem;
 
@@ -70,7 +69,7 @@ const Cart = (props) => {
                 <div className="text-2xl font-semibold text-neutral-700">Total: {grandTotal}</div>
                 <div className="w-8 h-8"><ImageLoader name={"emerald"} ></ImageLoader></div>
                 </div>
-                <Link  className="bg-yellow-700 text-slate-50 p-2 rounded-md shadow mt-2 block w-48 text-center font-semibold" to="/order-completed" onClick={() => { completeOrder() }}>Complete order</Link>
+                <Link  className="bg-yellow-700 text-slate-50 p-2 rounded-md shadow mt-2 block w-48 text-center font-semibold" to="/order-completed">Complete order</Link>
             </div>
         </div>
     )

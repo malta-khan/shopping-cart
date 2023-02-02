@@ -64,8 +64,8 @@ let App = ()=>{
     <Routes>
     <Route path="" element = {<Home></Home>} ></Route>
     <Route path="shop" element = {<Shop storeItems = {storeItems}></Shop>} ></Route>
-    <Route path="my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem} completeOrder = {completeOrder}></Cart>} ></Route>
-    <Route path="order-completed" element = {<OrderCompleted></OrderCompleted>}></Route>
+    <Route path="my-cart" element = {<Cart storeItems = {storeItems} cartItems = {cartItems} updateCart = {updateCart} deleteCartItem = {deleteCartItem}></Cart>} ></Route>
+    <Route path="order-completed" element = {<OrderCompleted completeOrder = {completeOrder}></OrderCompleted>}></Route>
     <Route path="shop/:item" element = {<Item storeItems = {storeItems} cartItems = {cartItems} addToCart = {addToCart}></Item>} ></Route>
     <Route path="*" element = {<Invalid></Invalid>} ></Route>
     </Routes>
