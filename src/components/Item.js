@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import ImageLoader from "./ImageLoader";
 const Item = (props) => {
     //get item name from url, scan store for that item.
@@ -13,6 +13,9 @@ const Item = (props) => {
     let addToCart = props.addToCart;
     let [itemQty, setItemQty] = useState(1);
     let qtyInCart = props.cartItems[itemUrl];
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, []);
 
     if (storeItem === undefined) {
         return <div className="max-w-xl w-full  p-24 grow">
